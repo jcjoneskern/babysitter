@@ -6,29 +6,33 @@ function calc(start, bed, leave) {
   var pay = 0;
   var wage = 0;
 
+  //conversion in case end time is entered as 0000 rather than 2400
   if(leave == 0) {
     leave = 2400;
   }
 
-  //start to bedtime
-  wage = 12;
-  pay += (Math.ceil((bed - start)/100))*wage;
-  //bedtime to midnight
-  wage = 8;
-  if(leave >= 0 && leave <= 400) {
-    pay += (Math.ceil(24 - (bed/100)))*wage;
+  if (bed > leave && leave > 500) { //if babysitter leaves before bedtime
+    wage = 12;
+    pay += (Math.ceil((leave - start)/100))*wage;
   } else {
-    pay += (Math.ceil((leave - bed)/100))*wage;
+    //start to bedtime
+    wage = 12;
+    pay += (Math.ceil((bed - start)/100))*wage;
+    //bedtime to midnight
+    wage = 8;
+    if(leave >= 0 && leave <= 400) {
+      pay += (Math.ceil(24 - (bed/100)))*wage;
+    } else {
+      pay += (Math.ceil((leave - bed)/100))*wage;
+    }
+    //midnight to end
+    wage = 16;
+    if(leave > 0 && leave <= 400) { //leaving after midnight
+      pay += Math.ceil(leave/100)*wage;
+    } //shouldn't add anything else if babysitter leaves before midnight
   }
-  //midnight to end
-  wage = 16;
-  if(leave > 0 && leave <= 400) { //leaving after midnight
-    pay += Math.ceil(leave/100)*wage;
-  } //shouldn't add anything else if babysitter leaves before midnight
   return pay;
 }
-
-//is it possible fore this to handle leaving before bedtime?
 
 // The babysitter
 // - starts no earlier than 5:00PM

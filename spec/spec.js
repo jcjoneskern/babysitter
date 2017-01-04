@@ -16,4 +16,7 @@ describe("calculation", function() {
   it("handles leaving at midnight && midnight is 24", function() {
     expect(calc(1730, 2030, 2400)).toEqual(68);
   });
+  it("handles bedtime being before babysitter leaves", function() {
+    expect(calc(1730, 2100, 2000)).toEqual(36);
+  });
 });
