@@ -10,4 +10,10 @@ describe("calculation", function() {
   it("handles leaving before midnight", function() {
     expect(calc(1730, 2030, 2200)).toEqual(52);
   });
+  it("handles leaving at midnight && midnight is 0", function() {
+    expect(calc(1730, 2030, 0)).toEqual(68);
+  });
+  it("handles leaving at midnight && midnight is 24", function() {
+    expect(calc(1730, 2030, 2400)).toEqual(68);
+  });
 });

@@ -1,9 +1,14 @@
 module.exports = calc;
 
 //uses military time
+//assumes bedtime will always be before midnight
 function calc(start, bed, leave) {
   var pay = 0;
   var wage = 0;
+
+  if(leave == 0) {
+    leave = 2400;
+  }
 
   //start to bedtime
   wage = 12;
@@ -17,18 +22,13 @@ function calc(start, bed, leave) {
   }
   //midnight to end
   wage = 16;
-  if(leave >= 0 && leave <= 400) { //leaving after midnight
+  if(leave > 0 && leave <= 400) { //leaving after midnight
     pay += Math.ceil(leave/100)*wage;
   } //shouldn't add anything else if babysitter leaves before midnight
   return pay;
 }
 
-//TODO:
-//errors
-//time conversion?
-//current rounding doesn't make sense--should do the subtraction and then round up to a full hour
-
-
+//is it possible fore this to handle leaving before bedtime?
 
 // The babysitter
 // - starts no earlier than 5:00PM
