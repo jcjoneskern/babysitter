@@ -4,41 +4,29 @@ module.exports = calc;
 function calc(start, bed, leave) {
   var pay = 0;
   var wage = 0;
-  start = Math.floor(start);
-  bed = Math.floor(bed);
-  leave = Math.ceil(leave);
 
-  function beginning() {
-    wage = 12;
-    pay += (bed - start)*wage;
-    return pay;
-  }
+  start = Math.floor(start/100);
+  bed = Math.floor(bed/100);
+  leave = Math.ceil(leave/100);
 
-  function middle() {
-    wage = 8;
-    pay += (24 - bed)*wage;
-    return pay;
-  }
+  //start to bedtime
+  wage = 12;
+  pay += (bed - start)*wage;
+  //bedtime to midnight
+  wage = 8;
+  pay += (24 - bed)*wage;
+  //midnight to end
+  wage = 16;
+  pay += leave*wage;
 
-  function end() {
-    wage = 16;
-    pay += leave*wage;
-    return pay;
-  }
-
-  beginning();
-  middle();
-  end();
   return pay;
 }
 
-
-//assumption: always round down--ex: 8:15, 8:30, and 8:45 should all be 8
-//bedtime will always be before midnight
 //TODO: one function rather than 3
 //rounding
 //errors
 //time conversion?
+//current rounding doesn't make sense--should do the subtraction and then round up to a full hour
 
 
 
