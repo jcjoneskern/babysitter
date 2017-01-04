@@ -7,4 +7,7 @@ describe("calculation", function() {
   it("rounds to full hours", function() {
     expect(calc(1730, 2030, 330)).toEqual(132);
   });
+  it("handles leaving before midnight", function() {
+    expect(calc(1730, 2030, 2200)).toEqual(52);
+  });
 });

@@ -5,25 +5,25 @@ function calc(start, bed, leave) {
   var pay = 0;
   var wage = 0;
 
-  start = Math.floor(start/100);
-  bed = Math.floor(bed/100);
-  leave = Math.ceil(leave/100);
-
   //start to bedtime
   wage = 12;
-  pay += (bed - start)*wage;
+  pay += (Math.ceil((bed - start)/100))*wage;
   //bedtime to midnight
   wage = 8;
-  pay += (24 - bed)*wage;
+  if(leave >= 0 && leave <= 400) {
+    pay += (Math.ceil(24 - (bed/100)))*wage;
+  } else {
+    pay += (Math.ceil((leave - bed)/100))*wage;
+  }
   //midnight to end
   wage = 16;
-  pay += leave*wage;
-
+  if(leave >= 0 && leave <= 400) { //leaving after midnight
+    pay += Math.ceil(leave/100)*wage;
+  } //shouldn't add anything else if babysitter leaves before midnight
   return pay;
 }
 
-//TODO: one function rather than 3
-//rounding
+//TODO:
 //errors
 //time conversion?
 //current rounding doesn't make sense--should do the subtraction and then round up to a full hour
