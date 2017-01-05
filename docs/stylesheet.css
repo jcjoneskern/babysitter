@@ -1,0 +1,24 @@
+body {
+  font-family: Monaco, "Lucida Console", monspace;
+}
+h1, h2 {
+  color: #8a4182;
+}
+h1 {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+a:hover {
+  color: #007069;
+}
+pre {
+  background-color: #eee;
+  margin: -8px;
+  padding: 5px;
+  color: #007069;
+}
