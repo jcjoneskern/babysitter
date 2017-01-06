@@ -1,7 +1,9 @@
 #Babysitter Kata
 
-From https://gist.github.com/jameskbride/5482722
+Kata from here: https://gist.github.com/jameskbride/5482722
 
-The test cases used and ran in Jasmine are viewable here: https://jcjoneskern.github.io/babysitter/
-
-The long term plan is to have a page where the user could input times for themselves and get back a calculation.
+Ways to view the tests:
+* Can be seen using Jasmine's HTML spec runner here: https://jcjoneskern.github.io/babysitter/
+* Can also be seen by cloning the repository, then within the cloned directory:
+  1. In the command line, run `npm install`.
+  2. Tests can then be run by typing `gulp` in the command line. Green dots indicate the test has passed.
