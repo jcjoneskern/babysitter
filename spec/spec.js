@@ -25,6 +25,9 @@ describe("calculation", function() {
   it("handles babysitter arriving after bedtime", function() {
     expect(calc(2100, 2000, 200)).toEqual(56);
   });
+  it("handles babysitter arriving after bedtime && leaving before midnight", function() {
+    expect(calc(2100, 2000, 2300)).toEqual(16);
+  });
   it("handles babysitter leaving at bedtime", function() {
     expect(calc(1700, 2100, 2100)).toEqual(48);
   });
