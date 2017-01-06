@@ -22,4 +22,7 @@ describe("calculation", function() {
   it("handles bedtime being before babysitter leaves", function() {
     expect(calc(1730, 2100, 2000)).toEqual(36);
   });
+  it("handles babysitter arriving after bedtime", function() {
+    expect(calc(2100, 2000, 200)).toEqual(56);
+  });
 });
