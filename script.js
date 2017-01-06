@@ -2,8 +2,10 @@ module.exports = calc;
 
 //uses military time
 //assumes bedtime will always be before midnight
+//assumes babysitter will always arrive before bedtime
 function calc(start, bed, leave) {
-  var pay, wage;
+  var pay;
+  var wage = 12; //for the first calculation, wage will always be 12;
 
   //conversion in case end time is entered as 0000 rather than 2400
   if(leave == 0) {
@@ -11,11 +13,9 @@ function calc(start, bed, leave) {
   }
 
   if (bed > leave && leave > 500) { //if babysitter leaves before bedtime
-    wage = 12;
     pay = (Math.ceil((leave - start)/100))*wage;
   } else {
     //start to bedtime
-    wage = 12;
     pay = (Math.ceil((bed - start)/100))*wage;
     //bedtime to midnight
     wage = 8;
