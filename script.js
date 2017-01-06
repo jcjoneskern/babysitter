@@ -3,8 +3,7 @@ module.exports = calc;
 //uses military time
 //assumes bedtime will always be before midnight
 function calc(start, bed, leave) {
-  var pay = 0;
-  var wage = 0;
+  var pay, wage;
 
   //conversion in case end time is entered as 0000 rather than 2400
   if(leave == 0) {
