@@ -14,11 +14,12 @@ function calc(start, bed, leave) {
   if (bed > leave && leave > 500) { //if babysitter leaves before bedtime
     pay = (Math.ceil((leave - start)/100))*wage;
   } else if (start > bed) { //if babysitter arrives after bedtime
+    //arrival to midnight
     wage = 8;
     if(leave >= 0 && leave <= 400) {
       pay = (Math.ceil(24 - (start/100)))*wage;
-    } else {
-      pay += (Math.ceil((leave - start)/100))*wage;
+    } else { //leaves before midnight
+      pay = (Math.ceil((leave - start)/100))*wage;
     }
     //midnight to end
     wage = 16;
@@ -49,3 +50,5 @@ function calc(start, bed, leave) {
 // --sitter leaves before bedtime
 // --sitter leaves before midnight
 // --sitter arrives after bedtime
+// --sitter leaves at bedtime
+// --sitter leaves right after bedtime (could cause weirdness with rounding)
