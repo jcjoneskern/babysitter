@@ -12,11 +12,11 @@ function calc(start, bed, leave) {
 
   if (bed > leave && leave > 500) { //if babysitter leaves before bedtime
     wage = 12;
-    pay += (Math.ceil((leave - start)/100))*wage;
+    pay = (Math.ceil((leave - start)/100))*wage;
   } else {
     //start to bedtime
     wage = 12;
-    pay += (Math.ceil((bed - start)/100))*wage;
+    pay = (Math.ceil((bed - start)/100))*wage;
     //bedtime to midnight
     wage = 8;
     if(leave >= 0 && leave <= 400) {
