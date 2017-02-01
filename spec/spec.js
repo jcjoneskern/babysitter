@@ -1,4 +1,5 @@
 var generic = require("../generic.js");
+var diff = require("../unusual.js");
 
 describe("calculation", function() {
   it("calculates bedtime @8 for max time", function() {
