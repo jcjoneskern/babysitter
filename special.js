@@ -1,15 +1,13 @@
-module.exports = diff;
+module.exports = special;
 
-function diff(start, bed, leave) {
-  var pay;
-  var wage = 12;
-
+function special(start, bed, leave) {
   if(leave == 0) {
     leave = 2400;
   }
 
   if (bed > leave && leave > 500) {
-    pay = (Math.ceil((leave - start)/100))*wage;
+    var wage = 12;
+    var pay = (Math.ceil((leave - start)/100))*wage;
   } else if (start > bed) {
     wage = 8;
     if(leave >= 0 && leave <= 400) {
