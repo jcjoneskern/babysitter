@@ -21,13 +21,13 @@ describe("calculation", function() {
     expect(generic(1730, 2030, 2400)).toEqual(68);
   });
   it("handles bedtime being before babysitter leaves", function() {
-    expect(generic(1730, 2100, 2000)).toEqual(36);
+    expect(diff(1730, 2100, 2000)).toEqual(36);
   });
   it("handles babysitter arriving after bedtime", function() {
-    expect(generic(2100, 2000, 200)).toEqual(56);
+    expect(diff(2100, 2000, 200)).toEqual(56);
   });
   it("handles babysitter arriving after bedtime && leaving before midnight", function() {
-    expect(generic(2100, 2000, 2300)).toEqual(16);
+    expect(diff(2100, 2000, 2300)).toEqual(16);
   });
   it("handles babysitter leaving at bedtime", function() {
     expect(generic(1700, 2100, 2100)).toEqual(48);
