@@ -1,7 +1,8 @@
 module.exports = generic;
 
 function generic(start, bed, leave) {
-  var pay, wage;
+  var pay;
+  var wage = 12;
 
   if(leave == 0) {
     leave = 2400;
